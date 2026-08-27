@@ -131,6 +131,17 @@ export function DashboardShellProvider({ children }: { children: React.ReactNode
     window.localStorage.setItem("qd-theme", theme);
   }, [theme]);
 
+  // Demonstrates the two live surfaces: alerts auto-dismiss after 10s,
+  // reminders stay until manually closed.
+  React.useEffect(() => {
+    const alertTimer = window.setTimeout(() => fireAlertToast(seed[2]!), 1500);
+    const reminderTimer = window.setTimeout(() => fireReminderToast(seed[5]!), 3500);
+    return () => {
+      window.clearTimeout(alertTimer);
+      window.clearTimeout(reminderTimer);
+    };
+  }, []);
+
   const registerRightDrawer = React.useCallback((open: boolean) => {
     setOpenRightDrawers((c) => Math.max(0, c + (open ? 1 : -1)));
   }, []);
