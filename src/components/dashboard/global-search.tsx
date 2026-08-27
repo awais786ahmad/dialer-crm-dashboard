@@ -74,11 +74,11 @@ export function GlobalSearch() {
             <CommandGroup key={group} heading={group}>
               {entries.map((entry) => (
                 <CommandItem
-                  key={entry.to}
+                  key={String(entry.to)}
                   value={`${group} ${entry.label}`}
                   onSelect={() => {
                     setOpen(false);
-                    void navigate({ to: entry.to });
+                    void navigate({ to: entry.to ?? "/dashboard" });
                   }}
                 >
                   <Search className="mr-2 size-4 text-muted-foreground" />

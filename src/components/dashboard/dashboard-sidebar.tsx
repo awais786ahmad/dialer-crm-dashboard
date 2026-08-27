@@ -10,7 +10,8 @@ export const RAIL_WIDTH = "4.5rem";
 export const PANEL_WIDTH = "17rem";
 
 function activeGroupId(pathname: string) {
-  return dashboardNav.find((item) => item.children?.some((c) => pathname.startsWith(c.to)))?.id;
+  return dashboardNav.find((item) => item.children?.some((c) => pathname.startsWith(String(c.to))))
+    ?.id;
 }
 
 export function DashboardSidebar() {
@@ -115,7 +116,7 @@ function NavLeaf({
 }) {
   const active = pathname === item.to;
   return (
-    <Link to={item.to!} className={rowClasses(active)} title={expanded ? undefined : item.label}>
+    <Link to={item.to ?? "/dashboard"} className={rowClasses(active)} title={expanded ? undefined : item.label}>
       <item.icon className="size-5 shrink-0" />
       <span
         className={cn(
@@ -184,8 +185,8 @@ function NavGroup({
               const active = pathname === child.to;
               return (
                 <Link
-                  key={child.to}
-                  to={child.to}
+                  key={String(child.to)}
+                  to={child.to ?? "/dashboard"}
                   className={cn(
                     "block truncate rounded-lg px-3 py-2 text-sm whitespace-nowrap transition-colors",
                     active
