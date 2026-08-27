@@ -1,3 +1,4 @@
+import type { LinkProps } from "@tanstack/react-router";
 import {
   LayoutDashboard,
   Users,
@@ -10,13 +11,15 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-export type NavChild = { label: string; to: string };
+export type AppRoute = LinkProps["to"];
+
+export type NavChild = { label: string; to: AppRoute };
 
 export type NavItem = {
   id: string;
   label: string;
   icon: LucideIcon;
-  to?: string;
+  to?: AppRoute;
   children?: NavChild[];
 };
 
@@ -74,7 +77,7 @@ export const dashboardNav: NavItem[] = [
   },
 ];
 
-export function findBreadcrumbs(pathname: string): { label: string; to?: string }[] {
+export function findBreadcrumbs(pathname: string): { label: string; to?: AppRoute }[] {
   for (const item of dashboardNav) {
     if (item.to === pathname) return [{ label: item.label, to: item.to }];
     const child = item.children?.find((c) => c.to === pathname);
