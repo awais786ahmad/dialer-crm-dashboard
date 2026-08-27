@@ -39,8 +39,9 @@ export function useShell() {
 export function useRightDrawerRegistration(open: boolean) {
   const { registerRightDrawer } = useShell();
   React.useEffect(() => {
-    registerRightDrawer(open);
-    if (open) return () => registerRightDrawer(false);
+    if (!open) return;
+    registerRightDrawer(true);
+    return () => registerRightDrawer(false);
   }, [open, registerRightDrawer]);
 }
 
