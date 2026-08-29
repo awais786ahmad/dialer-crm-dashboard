@@ -133,7 +133,7 @@ export function CallingSettings() {
           }
         }}
         title={active?.title ?? ""}
-        description={active?.description}
+        description={active?.description ?? ""}
         footer={
           editing ? (
             <div className="flex justify-end gap-2">
