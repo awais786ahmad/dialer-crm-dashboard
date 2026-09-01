@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { ProfileSettings } from "@/components/settings/profile-settings";
 
 export const Route = createFileRoute("/_dashboard/settings/profile")({
   head: () => ({
@@ -15,5 +15,5 @@ export const Route = createFileRoute("/_dashboard/settings/profile")({
 });
 
 function Page() {
-  return <PageShell title="Profile" description="Your personal details, availability and notification prefs." entity="profile" />;
+  return <ProfileSettings />;
 }

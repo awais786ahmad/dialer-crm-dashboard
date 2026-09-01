@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { CallingSettings } from "@/components/settings/calling-settings";
 
 export const Route = createFileRoute("/_dashboard/settings/calling")({
   head: () => ({
@@ -15,5 +15,5 @@ export const Route = createFileRoute("/_dashboard/settings/calling")({
 });
 
 function Page() {
-  return <PageShell title="Calling settings" description="Caller IDs, recording, voicemail drops and dialling rules." entity="rule" />;
+  return <CallingSettings />;
 }
