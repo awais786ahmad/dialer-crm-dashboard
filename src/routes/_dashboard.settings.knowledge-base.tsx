@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { KnowledgeSettings } from "@/components/settings/knowledge-settings";
 
 export const Route = createFileRoute("/_dashboard/settings/knowledge-base")({
   head: () => ({
@@ -15,5 +15,5 @@ export const Route = createFileRoute("/_dashboard/settings/knowledge-base")({
 });
 
 function Page() {
-  return <PageShell title="Knowledge base" description="Documents and FAQs your AI agents can ground answers in." entity="article" />;
+  return <KnowledgeSettings />;
 }
