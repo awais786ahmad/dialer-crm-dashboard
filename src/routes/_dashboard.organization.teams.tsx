@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { TeamsSettings } from "@/components/organization/teams-settings";
 
 export const Route = createFileRoute("/_dashboard/organization/teams")({
   head: () => ({
@@ -15,5 +15,5 @@ export const Route = createFileRoute("/_dashboard/organization/teams")({
 });
 
 function Page() {
-  return <PageShell title="Teams" description="Structure agents into teams with their own routing rules." entity="team" />;
+  return <TeamsSettings />;
 }

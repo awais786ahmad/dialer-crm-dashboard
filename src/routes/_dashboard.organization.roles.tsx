@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { RolesSettings } from "@/components/organization/roles-settings";
 
 export const Route = createFileRoute("/_dashboard/organization/roles")({
   head: () => ({
@@ -15,5 +15,5 @@ export const Route = createFileRoute("/_dashboard/organization/roles")({
 });
 
 function Page() {
-  return <PageShell title="Roles & permissions" description="Define what each role can see and change." entity="role" />;
+  return <RolesSettings />;
 }
