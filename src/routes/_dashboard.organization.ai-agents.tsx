@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { AiAgentsSettings } from "@/components/organization/ai-agents-settings";
 
 export const Route = createFileRoute("/_dashboard/organization/ai-agents")({
   head: () => ({
@@ -15,5 +15,5 @@ export const Route = createFileRoute("/_dashboard/organization/ai-agents")({
 });
 
 function Page() {
-  return <PageShell title="AI agents" description="Configure AI voice agents, tools and guardrails." entity="agent" />;
+  return <AiAgentsSettings />;
 }

@@ -182,14 +182,14 @@ export function RolesSettings() {
         description="Pick the exact modules and features this role can access."
         mode={editing ? "edit" : "create"}
         onSubmit={() => save(false)}
-        onSaveDraft={
-          editing
-            ? undefined
-            : () => {
+        {...(editing
+          ? {}
+          : {
+              onSaveDraft: () => {
                 save(true);
                 toast.info("Role saved as draft");
-              }
-        }
+              },
+            })}
       >
         <div className="space-y-2">
           <Label htmlFor="role-name">Role name</Label>

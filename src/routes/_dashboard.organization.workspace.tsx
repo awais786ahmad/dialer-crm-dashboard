@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { WorkspaceSettings } from "@/components/organization/workspace-settings";
 
 export const Route = createFileRoute("/_dashboard/organization/workspace")({
   head: () => ({
@@ -15,5 +15,5 @@ export const Route = createFileRoute("/_dashboard/organization/workspace")({
 });
 
 function Page() {
-  return <PageShell title="Workspace settings" description="Brand, numbers, compliance and workspace-wide defaults." entity="policy" />;
+  return <WorkspaceSettings />;
 }

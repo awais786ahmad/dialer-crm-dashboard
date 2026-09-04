@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { MembersSettings } from "@/components/organization/members-settings";
 
 export const Route = createFileRoute("/_dashboard/organization/members")({
   head: () => ({
@@ -15,5 +15,5 @@ export const Route = createFileRoute("/_dashboard/organization/members")({
 });
 
 function Page() {
-  return <PageShell title="Members" description="Invite teammates and manage seats across the workspace." entity="member" />;
+  return <MembersSettings />;
 }
