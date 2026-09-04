@@ -43,8 +43,8 @@ export function AiAgentsSettings() {
 
   const [name, setName] = React.useState("");
   const [persona, setPersona] = React.useState("");
-  const [voice, setVoice] = React.useState(voices[0]);
-  const [kb, setKb] = React.useState(knowledgeBases[0]);
+  const [voice, setVoice] = React.useState<string>(voices[0]!);
+  const [kb, setKb] = React.useState<string>(knowledgeBases[0]!);
   const [team, setTeam] = React.useState<string>("unassigned");
   const [prompt, setPrompt] = React.useState("");
 
@@ -53,8 +53,8 @@ export function AiAgentsSettings() {
   const reset = () => {
     setName("");
     setPersona("");
-    setVoice(voices[0]);
-    setKb(knowledgeBases[0]);
+    setVoice(voices[0]!);
+    setKb(knowledgeBases[0]!);
     setTeam("unassigned");
     setPrompt("");
   };
