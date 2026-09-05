@@ -1,7 +1,7 @@
 "use client";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { ResourceWorkspace } from "@/components/crm/resource-workspace";
 
 export default function Page() {
-  return <PageShell title="Tags" description="Organise records with reusable, colour-coded tags." entity="tag" />;
+  return <ResourceWorkspace type="tags" />;
 }

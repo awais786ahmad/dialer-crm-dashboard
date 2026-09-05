@@ -1,7 +1,7 @@
 "use client";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { ResourceWorkspace } from "@/components/crm/resource-workspace";
 
 export default function Page() {
-  return <PageShell title="Call scripts" description="Reusable talk tracks your agents and AI follow on calls." entity="script" />;
+  return <ResourceWorkspace type="scripts" />;
 }

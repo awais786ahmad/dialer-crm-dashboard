@@ -1,7 +1,7 @@
 "use client";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { ResourceWorkspace } from "@/components/crm/resource-workspace";
 
 export default function Page() {
-  return <PageShell title="Tasks" description="Follow-ups, callbacks and to-dos assigned across your team." entity="task" />;
+  return <ResourceWorkspace type="tasks" />;
 }

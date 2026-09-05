@@ -1,7 +1,7 @@
 "use client";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { ResourceWorkspace } from "@/components/crm/resource-workspace";
 
 export default function Page() {
-  return <PageShell title="Data table" description="Browse, filter and bulk-edit raw CRM records." entity="view" />;
+  return <ResourceWorkspace type="data-table" />;
 }

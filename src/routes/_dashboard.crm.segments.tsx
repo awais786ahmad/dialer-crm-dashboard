@@ -1,7 +1,7 @@
 "use client";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { ResourceWorkspace } from "@/components/crm/resource-workspace";
 
 export default function Page() {
-  return <PageShell title="Segments" description="Group leads into dynamic segments for targeted outreach." entity="segment" />;
+  return <ResourceWorkspace type="segments" />;
 }
