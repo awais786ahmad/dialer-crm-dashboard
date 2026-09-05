@@ -1,28 +1,12 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { Globe2, HeartHandshake, Rocket, ShieldCheck } from "lucide-react";
 import { MarketingLayout, PageHero } from "@/components/marketing/marketing-layout";
 import { SectionHeading, StaggerGroup, StaggerItem, Reveal } from "@/components/marketing/motion-primitives";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Quality Dial — The Team Behind the Platform" },
-      {
-        name: "description",
-        content:
-          "Quality Dial is built by operators and engineers who ran call floors. Learn our story, values and security posture.",
-      },
-      { property: "og:title", content: "About — Quality Dial" },
-      { property: "og:description", content: "The people and principles behind Quality Dial." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: AboutPage,
-});
 
 const values = [
   { icon: Rocket, title: "Ship for the floor", body: "Every release is tested by agents taking real calls, not just product managers." },
@@ -45,7 +29,7 @@ const team = [
   { name: "Marco Silva", role: "Head of Customer Success", initials: "MS" },
 ];
 
-function AboutPage() {
+export default function AboutPage() {
   return (
     <MarketingLayout>
       <PageHero
@@ -110,10 +94,10 @@ function AboutPage() {
           />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button variant="hero" size="lg" asChild>
-              <Link to="/contact">Request security review</Link>
+              <Link href="/contact">Request security review</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link to="/features">Explore the platform</Link>
+              <Link href="/features">Explore the platform</Link>
             </Button>
           </div>
         </div>

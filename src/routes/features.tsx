@@ -1,4 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import {
   BarChart3,
   Bot,
@@ -13,27 +15,6 @@ import { MarketingLayout, PageHero } from "@/components/marketing/marketing-layo
 import { Reveal, SectionHeading, StaggerGroup, StaggerItem } from "@/components/marketing/motion-primitives";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-
-export const Route = createFileRoute("/features")({
-  head: () => ({
-    meta: [
-      { title: "Features — Quality Dial Call Center Platform" },
-      {
-        name: "description",
-        content:
-          "AI voice agents, power dialing, CRM, campaigns, unified inbox and analytics — every call center capability in one workspace.",
-      },
-      { property: "og:title", content: "Features — Quality Dial" },
-      {
-        property: "og:description",
-        content: "AI agents, dialer, CRM, campaigns, inbox and analytics in one platform.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: FeaturesPage,
-});
 
 const pillars = [
   {
@@ -74,7 +55,7 @@ const pillars = [
   },
 ];
 
-function FeaturesPage() {
+export default function FeaturesPage() {
   return (
     <MarketingLayout>
       <PageHero
@@ -84,10 +65,10 @@ function FeaturesPage() {
       >
         <div className="flex flex-wrap justify-center gap-3">
           <Button variant="hero" size="lg" asChild>
-            <Link to="/auth/login">Start free trial</Link>
+            <Link href="/auth/login">Start free trial</Link>
           </Button>
           <Button variant="outline" size="lg" asChild>
-            <Link to="/contact">Talk to sales</Link>
+            <Link href="/contact">Talk to sales</Link>
           </Button>
         </div>
       </PageHero>
@@ -160,10 +141,10 @@ function FeaturesPage() {
         />
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button variant="hero" size="lg" asChild>
-            <Link to="/auth/login">Create workspace</Link>
+            <Link href="/auth/login">Create workspace</Link>
           </Button>
           <Button variant="outline" size="lg" asChild>
-            <Link to="/pricing">Compare plans</Link>
+            <Link href="/pricing">Compare plans</Link>
           </Button>
         </div>
       </section>

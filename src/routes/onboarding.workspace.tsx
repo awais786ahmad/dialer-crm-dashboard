@@ -1,4 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { OnboardingLayout } from "@/components/onboarding/onboarding-layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,21 +13,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export const Route = createFileRoute("/onboarding/workspace")({
-  head: () => ({
-    meta: [
-      { title: "Create your workspace — Quality Dial onboarding" },
-      { name: "description", content: "Name your workspace and tell us about your team to tailor Quality Dial." },
-      { property: "og:title", content: "Create your workspace — Quality Dial" },
-      { property: "og:description", content: "Step 1 of the Quality Dial onboarding flow." },
-    ],
-  }),
-  component: WorkspaceStep,
-});
-
 const useCases = ["Outbound sales", "Inbound support", "Appointment setting", "Collections"];
 
-function WorkspaceStep() {
+export default function WorkspaceStep() {
   return (
     <OnboardingLayout
       step={1}
@@ -34,10 +24,10 @@ function WorkspaceStep() {
       actions={
         <>
           <Button variant="ghost" asChild>
-            <Link to="/auth/login">Back</Link>
+            <Link href="/auth/login">Back</Link>
           </Button>
           <Button asChild>
-            <Link to="/onboarding/leads">Continue</Link>
+            <Link href="/onboarding/leads">Continue</Link>
           </Button>
         </>
       }

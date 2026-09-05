@@ -1,15 +1,10 @@
-import { Outlet, createFileRoute } from "@tanstack/react-router";
-
+import type { ReactNode } from "react";
 import { AppShell } from "@/components/dashboard/app-shell";
 
-export const Route = createFileRoute("/_dashboard")({
-  component: DashboardLayout,
-});
-
-function DashboardLayout() {
+export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <AppShell>
-      <Outlet />
+      {children}
     </AppShell>
   );
 }

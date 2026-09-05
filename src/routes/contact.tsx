@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { Building2, Mail, MessageSquare, Phone } from "lucide-react";
 import { MarketingLayout, PageHero } from "@/components/marketing/marketing-layout";
 import { Reveal } from "@/components/marketing/motion-primitives";
@@ -16,24 +17,6 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact Quality Dial — Talk to Sales or Support" },
-      {
-        name: "description",
-        content:
-          "Book a demo, request pricing or reach support. The Quality Dial team replies within one business day.",
-      },
-      { property: "og:title", content: "Contact — Quality Dial" },
-      { property: "og:description", content: "Book a demo or reach the Quality Dial team." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: ContactPage,
-});
-
 const channels = [
   { icon: Mail, title: "Email", value: "hello@qualitydial.com" },
   { icon: Phone, title: "Sales", value: "+1 (415) 555-0148" },
@@ -41,7 +24,7 @@ const channels = [
   { icon: Building2, title: "HQ", value: "548 Market St, San Francisco" },
 ];
 
-function ContactPage() {
+export default function ContactPage() {
   return (
     <MarketingLayout>
       <PageHero

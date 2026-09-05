@@ -1,22 +1,12 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { AuthShell } from "@/components/auth/auth-shell";
 import { Button } from "@/components/ui/button";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { MailCheck } from "lucide-react";
 
-export const Route = createFileRoute("/auth/verify-email")({
-  head: () => ({
-    meta: [
-      { title: "Verify your email — Quality Dial" },
-      { name: "description", content: "Enter the 6-digit code we sent to confirm your Quality Dial email address." },
-      { property: "og:title", content: "Verify your email — Quality Dial" },
-      { property: "og:description", content: "Confirm your email with the 6-digit code." },
-    ],
-  }),
-  component: VerifyEmailPage,
-});
-
-function VerifyEmailPage() {
+export default function VerifyEmailPage() {
   return (
     <AuthShell
       title="Verify your email"
@@ -24,7 +14,7 @@ function VerifyEmailPage() {
       footer={
         <>
           Wrong address?{" "}
-          <Link to="/auth/signup" className="font-medium text-foreground underline underline-offset-4">
+          <Link href="/auth/signup" className="font-medium text-foreground underline underline-offset-4">
             Change email
           </Link>
         </>
@@ -44,7 +34,7 @@ function VerifyEmailPage() {
         </InputOTP>
 
         <Button className="w-full" size="lg" asChild>
-          <Link to="/onboarding/workspace">Verify and continue</Link>
+          <Link href="/onboarding/workspace">Verify and continue</Link>
         </Button>
 
         <p className="text-sm text-muted-foreground">

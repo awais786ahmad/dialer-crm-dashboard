@@ -1,5 +1,8 @@
+"use client";
+
 import * as React from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   CircleUser,
   HelpCircle,
@@ -28,7 +31,7 @@ import { DialerDrawer } from "@/components/dashboard/dialer-drawer";
 import { useShell } from "@/components/dashboard/shell-context";
 
 export function DashboardTopbar() {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const pathname = usePathname();
   const crumbs = findBreadcrumbs(pathname);
   const { sidebarPinned, setSidebarPinned, theme, toggleTheme } = useShell();
   const [dialerOpen, setDialerOpen] = React.useState(false);
@@ -53,7 +56,7 @@ export function DashboardTopbar() {
               {i > 0 ? <span className="text-muted-foreground/60">/</span> : null}
               {crumb.to ? (
                 <Link
-                  to={crumb.to}
+                  href={crumb.to}
                   className="truncate text-sm font-medium text-foreground hover:text-primary"
                 >
                   {crumb.label}
@@ -102,19 +105,19 @@ export function DashboardTopbar() {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link to="/settings/profile">
+                <Link href="/settings/profile">
                   <CircleUser className="mr-2 size-4" />
                   Profile
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/organization/workspace">
+                <Link href="/organization/workspace">
                   <Settings className="mr-2 size-4" />
                   Settings
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/contact">
+                <Link href="/contact">
                   <HelpCircle className="mr-2 size-4" />
                   Help & support
                 </Link>
@@ -129,7 +132,7 @@ export function DashboardTopbar() {
                 {theme === "dark" ? "Light mode" : "Dark mode"}
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/auth/login">
+                <Link href="/auth/login">
                   <LogOut className="mr-2 size-4" />
                   Sign out
                 </Link>

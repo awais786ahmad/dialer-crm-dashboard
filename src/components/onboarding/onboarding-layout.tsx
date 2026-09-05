@@ -1,5 +1,7 @@
+"use client";
+
 import type { ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
 import { Logo } from "@/components/marketing/logo";
@@ -29,10 +31,10 @@ export function OnboardingLayout({
     <div className="min-h-screen bg-surface">
       <header className="border-b border-border/70 bg-background/80 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-          <Link to="/" aria-label="Quality Dial home">
+          <Link href="/" aria-label="Quality Dial home">
             <Logo />
           </Link>
-          <Link to="/dashboard" className="text-sm text-muted-foreground hover:text-foreground">
+          <Link href="/dashboard" className="text-sm text-muted-foreground hover:text-foreground">
             Skip for now
           </Link>
         </div>

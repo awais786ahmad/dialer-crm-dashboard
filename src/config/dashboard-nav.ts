@@ -1,4 +1,4 @@
-import type { LinkProps } from "@tanstack/react-router";
+
 import {
   LayoutDashboard,
   Users,
@@ -11,7 +11,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-export type AppRoute = LinkProps["to"];
+export type AppRoute = string;
 
 export type NavChild = { label: string; to: AppRoute };
 

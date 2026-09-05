@@ -1,5 +1,7 @@
+"use client";
+
 import type { ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { Quote, ShieldCheck, Sparkles } from "lucide-react";
 import { Logo } from "@/components/marketing/logo";
@@ -18,7 +20,7 @@ export function AuthShell({
   return (
     <div className="grid min-h-screen lg:grid-cols-[1.05fr_1fr]">
       <div className="flex flex-col px-6 py-10 sm:px-12">
-        <Link to="/" aria-label="Quality Dial home">
+        <Link href="/" aria-label="Quality Dial home">
           <Logo />
         </Link>
 

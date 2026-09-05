@@ -1,31 +1,12 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { ArrowRight, BookOpen, FileText, GraduationCap, Newspaper } from "lucide-react";
 import { MarketingLayout, PageHero } from "@/components/marketing/marketing-layout";
 import { SectionHeading, StaggerGroup, StaggerItem } from "@/components/marketing/motion-primitives";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-export const Route = createFileRoute("/resources")({
-  head: () => ({
-    meta: [
-      { title: "Resources — Guides, Docs & Playbooks | Quality Dial" },
-      {
-        name: "description",
-        content:
-          "Documentation, implementation guides, QA playbooks and product changelog for teams running Quality Dial.",
-      },
-      { property: "og:title", content: "Resources — Quality Dial" },
-      {
-        property: "og:description",
-        content: "Docs, guides, playbooks and changelog for call center teams.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: ResourcesPage,
-});
 
 const collections = [
   { icon: BookOpen, title: "Documentation", body: "Setup, numbers, integrations and API references." },
@@ -73,7 +54,7 @@ const articles = [
   },
 ];
 
-function ResourcesPage() {
+export default function ResourcesPage() {
   return (
     <MarketingLayout>
       <PageHero
@@ -130,7 +111,7 @@ function ResourcesPage() {
         />
         <div className="mt-8">
           <Button variant="hero" size="lg" asChild>
-            <Link to="/contact">Book a working session</Link>
+            <Link href="/contact">Book a working session</Link>
           </Button>
         </div>
       </section>

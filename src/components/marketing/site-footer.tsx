@@ -1,4 +1,6 @@
-import { Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { footerColumns } from "@/config/site";
 import { Logo } from "./logo";
@@ -32,7 +34,7 @@ export function SiteFooter() {
                 {col.links.map((l) => (
                   <li key={l.label}>
                     <Link
-                      to={l.to}
+                      href={l.to}
                       className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {l.label}

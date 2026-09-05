@@ -1,4 +1,6 @@
-import { Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,7 +27,7 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 py-3.5">
-        <Link to="/" aria-label="Quality Dial home">
+        <Link href="/" aria-label="Quality Dial home">
           <Logo />
         </Link>
 
@@ -33,7 +35,7 @@ export function SiteHeader() {
           {marketingNav.map((item) => (
             <Link
               key={item.to}
-              to={item.to}
+              href={item.to}
               className="rounded-lg px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground [&.active]:text-foreground"
             >
               {item.label}
@@ -43,10 +45,10 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <Button variant="ghost" asChild>
-            <Link to="/auth/login">Login</Link>
+            <Link href="/auth/login">Login</Link>
           </Button>
           <Button variant="hero" asChild>
-            <Link to="/auth/login">Get started</Link>
+            <Link href="/auth/login">Get started</Link>
           </Button>
         </div>
 
@@ -61,7 +63,7 @@ export function SiteHeader() {
               {marketingNav.map((item) => (
                 <Link
                   key={item.to}
-                  to={item.to}
+                  href={item.to}
                   className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
                 >
                   {item.label}
@@ -69,10 +71,10 @@ export function SiteHeader() {
               ))}
               <div className="mt-4 flex flex-col gap-2">
                 <Button variant="outline" asChild>
-                  <Link to="/auth/login">Login</Link>
+                  <Link href="/auth/login">Login</Link>
                 </Button>
                 <Button variant="hero" asChild>
-                  <Link to="/auth/login">Get started</Link>
+                  <Link href="/auth/login">Get started</Link>
                 </Button>
               </div>
             </div>

@@ -1,5 +1,8 @@
+"use client";
+
 import * as React from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -16,7 +19,7 @@ function activeGroupId(pathname: string) {
 
 export function DashboardSidebar() {
   const { sidebarPinned, setSidebarPinned } = useShell();
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const pathname = usePathname();
   const [hovered, setHovered] = React.useState(false);
   const [openGroup, setOpenGroup] = React.useState<string | undefined>(() =>
     activeGroupId(pathname),
@@ -42,7 +45,7 @@ export function DashboardSidebar() {
       )}
     >
       <div className="flex h-16 shrink-0 items-center gap-2 px-4">
-        <Link to="/dashboard" aria-label="Quality Dial dashboard" className="flex items-center">
+        <Link href="/dashboard" aria-label="Quality Dial dashboard" className="flex items-center">
           <span className="relative flex size-9 shrink-0 items-center justify-center rounded-xl bg-[image:var(--gradient-ink)] ring-1 ring-sidebar-border">
             <span className="size-3.5 rounded-full bg-[image:var(--gradient-accent)]" />
           </span>
@@ -116,7 +119,7 @@ function NavLeaf({
 }) {
   const active = pathname === item.to;
   return (
-    <Link to={item.to ?? "/dashboard"} className={rowClasses(active)} title={expanded ? undefined : item.label}>
+    <Link href={item.to ?? "/dashboard"} className={rowClasses(active)} title={expanded ? undefined : item.label}>
       <item.icon className="size-5 shrink-0" />
       <span
         className={cn(
@@ -186,7 +189,7 @@ function NavGroup({
               return (
                 <Link
                   key={String(child.to)}
-                  to={child.to ?? "/dashboard"}
+                  href={child.to ?? "/dashboard"}
                   className={cn(
                     "block truncate rounded-lg px-3 py-2 text-sm whitespace-nowrap transition-colors",
                     active

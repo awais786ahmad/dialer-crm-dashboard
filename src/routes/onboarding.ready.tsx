@@ -1,19 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { OnboardingLayout } from "@/components/onboarding/onboarding-layout";
 import { Button } from "@/components/ui/button";
 import { Check, Bot, Users, Megaphone } from "lucide-react";
-
-export const Route = createFileRoute("/onboarding/ready")({
-  head: () => ({
-    meta: [
-      { title: "You're ready to dial — Quality Dial onboarding" },
-      { name: "description", content: "Your Quality Dial workspace is configured. Launch your first campaign now." },
-      { property: "og:title", content: "You're ready to dial — Quality Dial" },
-      { property: "og:description", content: "Final step of the Quality Dial onboarding flow." },
-    ],
-  }),
-  component: ReadyStep,
-});
 
 const nextSteps = [
   { icon: Bot, title: "Tune your AI agent", desc: "Pick a voice, script and escalation rules." },
@@ -21,7 +11,7 @@ const nextSteps = [
   { icon: Megaphone, title: "Launch a campaign", desc: "Build a dialing list and set pacing." },
 ];
 
-function ReadyStep() {
+export default function ReadyStep() {
   return (
     <OnboardingLayout
       step={4}
@@ -30,10 +20,10 @@ function ReadyStep() {
       actions={
         <>
           <Button variant="ghost" asChild>
-            <Link to="/onboarding/phone">Back</Link>
+            <Link href="/onboarding/phone">Back</Link>
           </Button>
           <Button size="lg" asChild>
-            <Link to="/dashboard">Go to dashboard</Link>
+            <Link href="/dashboard">Go to dashboard</Link>
           </Button>
         </>
       }

@@ -1,5 +1,7 @@
+"use client";
+
 import * as React from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { useRouter } from "next/navigation";
 import { Clock, Search } from "lucide-react";
 
 import {
@@ -22,7 +24,7 @@ const recentSearches = [
 
 export function GlobalSearch() {
   const [open, setOpen] = React.useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   React.useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -78,7 +80,7 @@ export function GlobalSearch() {
                   value={`${group} ${entry.label}`}
                   onSelect={() => {
                     setOpen(false);
-                    void navigate({ to: entry.to ?? "/dashboard" });
+                    router.push(entry.to ?? "/dashboard");
                   }}
                 >
                   <Search className="mr-2 size-4 text-muted-foreground" />

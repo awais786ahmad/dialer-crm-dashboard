@@ -1,19 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { OnboardingLayout } from "@/components/onboarding/onboarding-layout";
 import { Button } from "@/components/ui/button";
 import { UploadCloud, Table2, Plug } from "lucide-react";
-
-export const Route = createFileRoute("/onboarding/leads")({
-  head: () => ({
-    meta: [
-      { title: "Import your leads — Quality Dial onboarding" },
-      { name: "description", content: "Upload a CSV, sync your CRM, or start from scratch with Quality Dial leads." },
-      { property: "og:title", content: "Import your leads — Quality Dial" },
-      { property: "og:description", content: "Step 2 of the Quality Dial onboarding flow." },
-    ],
-  }),
-  component: LeadsStep,
-});
 
 const sources = [
   { icon: UploadCloud, title: "Upload a CSV", desc: "Map columns to contacts, phones and tags." },
@@ -21,7 +11,7 @@ const sources = [
   { icon: Table2, title: "Start empty", desc: "Add contacts manually as you go." },
 ];
 
-function LeadsStep() {
+export default function LeadsStep() {
   return (
     <OnboardingLayout
       step={2}
@@ -30,10 +20,10 @@ function LeadsStep() {
       actions={
         <>
           <Button variant="ghost" asChild>
-            <Link to="/onboarding/workspace">Back</Link>
+            <Link href="/onboarding/workspace">Back</Link>
           </Button>
           <Button asChild>
-            <Link to="/onboarding/phone">Continue</Link>
+            <Link href="/onboarding/phone">Continue</Link>
           </Button>
         </>
       }

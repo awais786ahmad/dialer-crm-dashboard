@@ -1,19 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
 
 import { CallingSettings } from "@/components/settings/calling-settings";
 
-export const Route = createFileRoute("/_dashboard/settings/calling")({
-  head: () => ({
-    meta: [
-      { title: "Calling settings — Quality Dial" },
-      { name: "description", content: "Caller IDs, recording, voicemail drops and dialling rules." },
-      { property: "og:title", content: "Calling settings — Quality Dial" },
-      { property: "og:description", content: "Caller IDs, recording, voicemail drops and dialling rules." },
-    ],
-  }),
-  component: Page,
-});
-
-function Page() {
+export default function Page() {
   return <CallingSettings />;
 }

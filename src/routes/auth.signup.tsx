@@ -1,4 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { AuthShell } from "@/components/auth/auth-shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,19 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 
-export const Route = createFileRoute("/auth/signup")({
-  head: () => ({
-    meta: [
-      { title: "Create your account — Quality Dial" },
-      { name: "description", content: "Start a free Quality Dial trial and launch your AI call center in minutes." },
-      { property: "og:title", content: "Create your account — Quality Dial" },
-      { property: "og:description", content: "Start a free trial of the AI call center platform." },
-    ],
-  }),
-  component: SignupPage,
-});
-
-function SignupPage() {
+export default function SignupPage() {
   return (
     <AuthShell
       title="Create your workspace"
@@ -26,7 +16,7 @@ function SignupPage() {
       footer={
         <>
           Already have an account?{" "}
-          <Link to="/auth/login" className="font-medium text-foreground underline underline-offset-4">
+          <Link href="/auth/login" className="font-medium text-foreground underline underline-offset-4">
             Sign in
           </Link>
         </>
@@ -59,7 +49,7 @@ function SignupPage() {
           </span>
         </label>
         <Button type="submit" className="w-full" size="lg" asChild>
-          <Link to="/auth/verify-email">Create account</Link>
+          <Link href="/auth/verify-email">Create account</Link>
         </Button>
 
         <div className="flex items-center gap-3 py-1">

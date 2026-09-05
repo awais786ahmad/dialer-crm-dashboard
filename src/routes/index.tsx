@@ -1,4 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import {
   ArrowRight,
   BarChart3,
@@ -23,25 +25,6 @@ import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { plans } from "@/config/site";
 import { motion } from "motion/react";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Quality Dial — AI Call Center Platform for Modern Teams" },
-      {
-        name: "description",
-        content:
-          "Run calls, AI voice agents, CRM, campaigns and a unified inbox from one elegant workspace. Start your free trial.",
-      },
-      { property: "og:title", content: "Quality Dial — AI Call Center Platform" },
-      {
-        property: "og:description",
-        content: "Calls, AI agents, CRM, campaigns and automation in one workspace.",
-      },
-    ],
-  }),
-  component: Home,
-});
 
 const capabilities = [
   { icon: Users, title: "CRM & Leads", desc: "Segments, pipelines, tasks and custom data tables." },
@@ -94,7 +77,7 @@ const testimonials = [
   },
 ];
 
-function Home() {
+export default function Home() {
   return (
     <MarketingLayout>
       {/* Hero */}
@@ -135,12 +118,12 @@ function Home() {
               className="mt-9 flex flex-wrap gap-3"
             >
               <Button size="lg" variant="hero" asChild>
-                <Link to="/auth/login">
+                <Link href="/auth/login">
                   Start free trial <ArrowRight />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/contact">Book a demo</Link>
+                <Link href="/contact">Book a demo</Link>
               </Button>
             </motion.div>
             <p className="mt-5 text-xs text-muted-foreground">
@@ -354,7 +337,7 @@ function Home() {
           </StaggerGroup>
           <Reveal className="mt-10 text-center">
             <Button variant="outline" size="lg" asChild>
-              <Link to="/pricing">
+              <Link href="/pricing">
                 View full pricing <ArrowRight />
               </Link>
             </Button>
@@ -375,10 +358,10 @@ function Home() {
             </p>
             <div className="relative mt-9 flex flex-wrap justify-center gap-3">
               <Button size="lg" variant="hero" asChild>
-                <Link to="/auth/login">Get started</Link>
+                <Link href="/auth/login">Get started</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/contact">Book demo</Link>
+                <Link href="/contact">Book demo</Link>
               </Button>
             </div>
           </div>

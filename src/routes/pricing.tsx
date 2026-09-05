@@ -1,4 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { Check, Minus } from "lucide-react";
 import { MarketingLayout, PageHero } from "@/components/marketing/marketing-layout";
 import { SectionHeading, StaggerGroup, StaggerItem } from "@/components/marketing/motion-primitives";
@@ -12,27 +14,6 @@ import {
 } from "@/components/ui/accordion";
 import { plans } from "@/config/site";
 import { cn } from "@/lib/utils";
-
-export const Route = createFileRoute("/pricing")({
-  head: () => ({
-    meta: [
-      { title: "Pricing — Quality Dial Plans for Every Team Size" },
-      {
-        name: "description",
-        content:
-          "Simple per-seat pricing for Quality Dial. Starter, Professional and Enterprise plans with AI agents, dialing minutes and analytics included.",
-      },
-      { property: "og:title", content: "Pricing — Quality Dial" },
-      {
-        property: "og:description",
-        content: "Starter, Professional and Enterprise plans with AI agents and dialing included.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: PricingPage,
-});
 
 const comparison = [
   { feature: "Included dialing minutes", values: ["500", "5,000", "Custom"] },
@@ -63,7 +44,7 @@ const faqs = [
   },
 ];
 
-function PricingPage() {
+export default function PricingPage() {
   return (
     <MarketingLayout>
       <PageHero
@@ -103,7 +84,7 @@ function PricingPage() {
                   size="lg"
                   asChild
                 >
-                  <Link to={plan.name === "Enterprise" ? "/contact" : "/auth/signup"}>{plan.cta}</Link>
+                  <Link href={plan.name === "Enterprise" ? "/contact" : "/auth/signup"}>{plan.cta}</Link>
                 </Button>
                 <ul className="mt-7 space-y-3 text-sm text-muted-foreground">
                   {plan.features.map((f) => (
